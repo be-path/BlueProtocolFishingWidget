@@ -1,0 +1,617 @@
+{
+  "preset_info": {
+    "version": 13,
+    "title": "BLUEPROTOCOL Fishing Widget",
+    "description": "",
+    "author": "Nal",
+    "width": 1038,
+    "height": 234,
+    "features": "",
+    "release": 375410013,
+    "locked": false,
+    "pflags": 0
+  },
+  "preset_root": {
+    "internal_events": [
+      {
+        "action": "KUSTOM_ACTION"
+      }
+    ],
+    "internal_type": "RootLayerModule",
+    "globals_list": {
+      "w": {
+        "index": 18,
+        "type": "TEXT",
+        "title": "w",
+        "value": "$si(rwidth)*gv(rw)/100$",
+        "toggles": 1
+      },
+      "h": {
+        "index": 19,
+        "type": "TEXT",
+        "title": "h",
+        "value": "$si(rheight)*gv(rh)/100$",
+        "toggles": 1
+      },
+      "c0": {
+        "index": 11,
+        "type": "COLOR",
+        "title": "c0",
+        "value": "#FF000000"
+      },
+      "c1": {
+        "index": 12,
+        "type": "COLOR",
+        "title": "c1",
+        "value": "#FFFFFFFF"
+      },
+      "rb": {
+        "index": 8,
+        "type": "NUMBER",
+        "title": "rb",
+        "min": 0,
+        "max": 100,
+        "value": 15.0
+      },
+      "rw": {
+        "index": 5,
+        "type": "NUMBER",
+        "title": "rw",
+        "min": 0,
+        "max": 100,
+        "value": 80.0
+      },
+      "rh": {
+        "index": 6,
+        "type": "NUMBER",
+        "title": "rh",
+        "min": 0,
+        "max": 100,
+        "value": 40.0
+      },
+      "b": {
+        "index": 20,
+        "type": "TEXT",
+        "title": "b",
+        "value": "$gv(h)*gv(rb)/100$",
+        "toggles": 1
+      },
+      "c2": {
+        "index": 13,
+        "type": "COLOR",
+        "title": "c2",
+        "value": "#FF535353"
+      },
+      "rd": {
+        "index": 9,
+        "type": "NUMBER",
+        "title": "rd",
+        "min": 0,
+        "max": 100,
+        "value": 40.0
+      },
+      "d": {
+        "index": 21,
+        "type": "TEXT",
+        "title": "d",
+        "value": "$gv(h)*gv(rd)/100$",
+        "toggles": 1
+      },
+      "cbar0": {
+        "index": 14,
+        "type": "COLOR",
+        "title": "cbar0",
+        "value": "#FF65FAAC"
+      },
+      "cbar1": {
+        "index": 15,
+        "type": "COLOR",
+        "title": "cbar1",
+        "value": "#FFF1DC58"
+      },
+      "cbar2": {
+        "index": 16,
+        "type": "COLOR",
+        "title": "cbar2",
+        "value": "#FFF1AA4E"
+      },
+      "cbar3": {
+        "index": 17,
+        "type": "COLOR",
+        "title": "cbar3",
+        "value": "#FFE94A43"
+      },
+      "cbar": {
+        "index": 23,
+        "type": "TEXT",
+        "title": "cbar",
+        "value": "$if(bi(level) > 75, gv(cbar0), bi(level) > 50, gv(cbar1), bi(level) > 25, gv(cbar2), gv(cbar3))$",
+        "toggles": 1
+      },
+      "ri": {
+        "index": 10,
+        "type": "NUMBER",
+        "title": "ri",
+        "min": 0,
+        "max": 100,
+        "value": 60.0
+      },
+      "i": {
+        "index": 22,
+        "type": "TEXT",
+        "title": "i",
+        "value": "$si(rheight)*gv(ri)/100$",
+        "toggles": 1
+      },
+      "marginw": {
+        "index": 24,
+        "type": "TEXT",
+        "title": "marginw",
+        "value": "$(si(rwidth)-gv(w)-gv(i))/2$",
+        "toggles": 1
+      }
+    },
+    "viewgroup_items": [
+      {
+        "internal_type": "OverlapLayerModule",
+        "internal_toggles": {
+          "position_offset_y": 10,
+          "position_offset_x": 10
+        },
+        "internal_formulas": {
+          "position_offset_y": "$gv(h)*0.9$",
+          "position_offset_x": "$gv(marginw)+gv(b)$"
+        },
+        "position_anchor": "CENTERRIGHT",
+        "viewgroup_items": [
+          {
+            "internal_type": "TextModule",
+            "internal_title": "TENSION",
+            "internal_toggles": {
+              "position_padding_top": 0,
+              "paint_color": 0,
+              "text_size": 10,
+              "position_offset_x": 10,
+              "fx_shadow_blur": 0,
+              "fx_shadow_color": 100,
+              "fx_shadow_direction": 10,
+              "fx_shadow_distance": 10
+            },
+            "internal_formulas": {
+              "position_padding_top": "$gv(h)*1.8$",
+              "text_size": "$gv(h)*0.6$",
+              "position_offset_x": "$gv(marginw)+gv(b)$",
+              "fx_shadow_blur": "$gv(h)*0.2$",
+              "fx_shadow_direction": "$45*si(mindex)$",
+              "fx_shadow_distance": "$gv(b)*0.8$"
+            },
+            "internal_globals": {
+              "paint_color": "cbar2",
+              "fx_shadow_color": "c0"
+            },
+            "text_expression": "TENSION $100-bi(level)$%",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "fx_shadow_distance": 5.0,
+            "fx_shadow_color": "#D9000000",
+            "paint_color": "#00FFFFFF",
+            "fx_shadow": "OUTER",
+            "fx_shadow_blur": 1
+          },
+          {
+            "internal_type": "TextModule",
+            "internal_title": "TENSION",
+            "internal_toggles": {
+              "position_padding_top": 0,
+              "paint_color": 0,
+              "text_size": 10,
+              "position_offset_x": 10,
+              "fx_shadow_blur": 0,
+              "fx_shadow_color": 100,
+              "fx_shadow_direction": 10,
+              "fx_shadow_distance": 10
+            },
+            "internal_formulas": {
+              "position_padding_top": "$gv(h)*1.8$",
+              "text_size": "$gv(h)*0.6$",
+              "position_offset_x": "$gv(marginw)+gv(b)$",
+              "fx_shadow_blur": "$gv(h)*0.2$",
+              "fx_shadow_direction": "$45*si(mindex)$",
+              "fx_shadow_distance": "$gv(b)*0.8$"
+            },
+            "internal_globals": {
+              "paint_color": "cbar2",
+              "fx_shadow_color": "c0"
+            },
+            "text_expression": "TENSION $100-bi(level)$%",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "fx_shadow_distance": 5.0,
+            "fx_shadow_color": "#D9000000",
+            "paint_color": "#00FFFFFF",
+            "fx_shadow": "OUTER",
+            "fx_shadow_blur": 1
+          },
+          {
+            "internal_type": "TextModule",
+            "internal_title": "TENSION",
+            "internal_toggles": {
+              "position_padding_top": 0,
+              "paint_color": 0,
+              "text_size": 10,
+              "position_offset_x": 10,
+              "fx_shadow_blur": 0,
+              "fx_shadow_color": 100,
+              "fx_shadow_direction": 10,
+              "fx_shadow_distance": 10
+            },
+            "internal_formulas": {
+              "position_padding_top": "$gv(h)*1.8$",
+              "text_size": "$gv(h)*0.6$",
+              "position_offset_x": "$gv(marginw)+gv(b)$",
+              "fx_shadow_blur": "$gv(h)*0.2$",
+              "fx_shadow_direction": "$45*si(mindex)$",
+              "fx_shadow_distance": "$gv(b)*0.8$"
+            },
+            "internal_globals": {
+              "paint_color": "cbar2",
+              "fx_shadow_color": "c0"
+            },
+            "text_expression": "TENSION $100-bi(level)$%",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "fx_shadow_distance": 5.0,
+            "fx_shadow_color": "#D9000000",
+            "paint_color": "#00FFFFFF",
+            "fx_shadow": "OUTER",
+            "fx_shadow_blur": 1
+          },
+          {
+            "internal_type": "TextModule",
+            "internal_title": "TENSION",
+            "internal_toggles": {
+              "position_padding_top": 0,
+              "paint_color": 0,
+              "text_size": 10,
+              "position_offset_x": 10,
+              "fx_shadow_blur": 0,
+              "fx_shadow_color": 100,
+              "fx_shadow_direction": 10,
+              "fx_shadow_distance": 10
+            },
+            "internal_formulas": {
+              "position_padding_top": "$gv(h)*1.8$",
+              "text_size": "$gv(h)*0.6$",
+              "position_offset_x": "$gv(marginw)+gv(b)$",
+              "fx_shadow_blur": "$gv(h)*0.2$",
+              "fx_shadow_direction": "$45*si(mindex)$",
+              "fx_shadow_distance": "$gv(b)*0.8$"
+            },
+            "internal_globals": {
+              "paint_color": "cbar2",
+              "fx_shadow_color": "c0"
+            },
+            "text_expression": "TENSION $100-bi(level)$%",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "fx_shadow_distance": 5.0,
+            "fx_shadow_color": "#D9000000",
+            "paint_color": "#00FFFFFF",
+            "fx_shadow": "OUTER",
+            "fx_shadow_blur": 1
+          },
+          {
+            "internal_type": "TextModule",
+            "internal_title": "TENSION",
+            "internal_toggles": {
+              "position_padding_top": 0,
+              "paint_color": 0,
+              "text_size": 10,
+              "position_offset_x": 10,
+              "fx_shadow_blur": 0,
+              "fx_shadow_color": 100,
+              "fx_shadow_direction": 10,
+              "fx_shadow_distance": 10
+            },
+            "internal_formulas": {
+              "position_padding_top": "$gv(h)*1.8$",
+              "text_size": "$gv(h)*0.6$",
+              "position_offset_x": "$gv(marginw)+gv(b)$",
+              "fx_shadow_blur": "$gv(h)*0.2$",
+              "fx_shadow_direction": "$45*si(mindex)$",
+              "fx_shadow_distance": "$gv(b)*0.8$"
+            },
+            "internal_globals": {
+              "paint_color": "cbar2",
+              "fx_shadow_color": "c0"
+            },
+            "text_expression": "TENSION $100-bi(level)$%",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "fx_shadow_distance": 5.0,
+            "fx_shadow_color": "#D9000000",
+            "paint_color": "#00FFFFFF",
+            "fx_shadow": "OUTER",
+            "fx_shadow_blur": 1
+          },
+          {
+            "internal_type": "TextModule",
+            "internal_title": "TENSION",
+            "internal_toggles": {
+              "position_padding_top": 0,
+              "paint_color": 0,
+              "text_size": 10,
+              "position_offset_x": 10,
+              "fx_shadow_blur": 0,
+              "fx_shadow_color": 100,
+              "fx_shadow_direction": 10,
+              "fx_shadow_distance": 10
+            },
+            "internal_formulas": {
+              "position_padding_top": "$gv(h)*1.8$",
+              "text_size": "$gv(h)*0.6$",
+              "position_offset_x": "$gv(marginw)+gv(b)$",
+              "fx_shadow_blur": "$gv(h)*0.2$",
+              "fx_shadow_direction": "$45*si(mindex)$",
+              "fx_shadow_distance": "$gv(b)*0.8$"
+            },
+            "internal_globals": {
+              "paint_color": "cbar2",
+              "fx_shadow_color": "c0"
+            },
+            "text_expression": "TENSION $100-bi(level)$%",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "fx_shadow_distance": 5.0,
+            "fx_shadow_color": "#D9000000",
+            "paint_color": "#00FFFFFF",
+            "fx_shadow": "OUTER",
+            "fx_shadow_blur": 1
+          },
+          {
+            "internal_type": "TextModule",
+            "internal_title": "TENSION",
+            "internal_toggles": {
+              "position_padding_top": 0,
+              "paint_color": 0,
+              "text_size": 10,
+              "position_offset_x": 10,
+              "fx_shadow_blur": 0,
+              "fx_shadow_color": 100,
+              "fx_shadow_direction": 10,
+              "fx_shadow_distance": 10
+            },
+            "internal_formulas": {
+              "position_padding_top": "$gv(h)*1.8$",
+              "text_size": "$gv(h)*0.6$",
+              "position_offset_x": "$gv(marginw)+gv(b)$",
+              "fx_shadow_blur": "$gv(h)*0.2$",
+              "fx_shadow_direction": "$45*si(mindex)$",
+              "fx_shadow_distance": "$gv(b)*0.8$"
+            },
+            "internal_globals": {
+              "paint_color": "cbar2",
+              "fx_shadow_color": "c0"
+            },
+            "text_expression": "TENSION $100-bi(level)$%",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "fx_shadow_distance": 5.0,
+            "fx_shadow_color": "#D9000000",
+            "paint_color": "#00FFFFFF",
+            "fx_shadow": "OUTER",
+            "fx_shadow_blur": 1
+          },
+          {
+            "internal_type": "TextModule",
+            "internal_title": "TENSION",
+            "internal_toggles": {
+              "position_padding_top": 0,
+              "paint_color": 0,
+              "text_size": 10,
+              "position_offset_x": 10,
+              "fx_shadow_blur": 0,
+              "fx_shadow_color": 100,
+              "fx_shadow_direction": 10,
+              "fx_shadow_distance": 10
+            },
+            "internal_formulas": {
+              "position_padding_top": "$gv(h)*1.8$",
+              "text_size": "$gv(h)*0.6$",
+              "position_offset_x": "$gv(marginw)+gv(b)$",
+              "fx_shadow_blur": "$gv(h)*0.2$",
+              "fx_shadow_direction": "$45*si(mindex)$",
+              "fx_shadow_distance": "$gv(b)*0.8$"
+            },
+            "internal_globals": {
+              "paint_color": "cbar2",
+              "fx_shadow_color": "c0"
+            },
+            "text_expression": "TENSION $100-bi(level)$%",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "fx_shadow_distance": 5.0,
+            "fx_shadow_color": "#D9000000",
+            "paint_color": "#00FFFFFF",
+            "fx_shadow": "OUTER",
+            "fx_shadow_blur": 1
+          },
+          {
+            "internal_type": "TextModule",
+            "internal_title": "TENSION",
+            "internal_toggles": {
+              "position_padding_top": 0,
+              "paint_color": 100,
+              "text_size": 10,
+              "position_offset_x": 10,
+              "fx_shadow_blur": 10
+            },
+            "internal_formulas": {
+              "position_padding_top": "$gv(h)*1.8$",
+              "text_size": "$gv(h)*0.6$",
+              "position_offset_x": "$gv(marginw)+gv(b)$",
+              "fx_shadow_blur": "$gv(h)*0.2$"
+            },
+            "internal_globals": {
+              "paint_color": "cbar2"
+            },
+            "text_expression": "TENSION $100-bi(level)$%",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "fx_shadow_direction": 0,
+            "fx_shadow_distance": 0,
+            "fx_shadow_color": "#D9000000"
+          }
+        ]
+      },
+      {
+        "internal_type": "ShapeModule",
+        "internal_title": "枠",
+        "internal_toggles": {
+          "paint_color": 100,
+          "shape_width": 10,
+          "shape_height": 10
+        },
+        "internal_formulas": {
+          "shape_width": "$gv(w)+gv(i)$",
+          "shape_height": "$gv(h)$"
+        },
+        "internal_globals": {
+          "paint_color": "c0"
+        },
+        "shape_type": "RECT",
+        "shape_corners": 360
+      },
+      {
+        "internal_type": "ShapeModule",
+        "internal_title": "バッテリーメーター（背景）",
+        "internal_toggles": {
+          "shape_width": 10,
+          "paint_color": 100,
+          "shape_height": 10,
+          "position_offset_x": 10
+        },
+        "internal_formulas": {
+          "shape_width": "$(gv(w)-gv(b)*2)$",
+          "shape_height": "$gv(h)-gv(b)*2$",
+          "position_offset_x": "$gv(marginw)+gv(i)+gv(b)$"
+        },
+        "internal_globals": {
+          "paint_color": "c2"
+        },
+        "shape_type": "RECT",
+        "shape_width": 40.0,
+        "shape_height": 40.0,
+        "shape_corners": 360,
+        "position_anchor": "CENTERLEFT"
+      },
+      {
+        "internal_type": "ShapeModule",
+        "internal_title": "バッテリーメーター",
+        "internal_toggles": {
+          "shape_width": 10,
+          "paint_color": 10,
+          "shape_height": 10,
+          "position_offset_x": 10
+        },
+        "internal_formulas": {
+          "shape_width": "$mu(max, gv(h)-gv(b)*2, gv(w)*(100-bi(level))/100)$",
+          "shape_height": "$gv(h)-gv(b)*2$",
+          "paint_color": "$gv(cbar)$",
+          "position_offset_x": "$gv(marginw)+gv(i)+gv(b)$"
+        },
+        "internal_globals": {
+          "paint_color": "c1"
+        },
+        "shape_type": "RECT",
+        "shape_width": 40.0,
+        "shape_height": 40.0,
+        "shape_corners": 360,
+        "position_anchor": "CENTERLEFT"
+      },
+      {
+        "internal_type": "StackLayerModule",
+        "internal_title": "目盛",
+        "internal_toggles": {
+          "config_margin": 10,
+          "position_offset_x": 10
+        },
+        "internal_formulas": {
+          "config_margin": "$(gv(w)-gv(b)*2-gv(d)*3)/4$",
+          "position_offset_x": "$gv(marginw)+gv(i)+gv(b)+(gv(w)-gv(b)*2-gv(d)*3)/4$"
+        },
+        "config_stacking": "HORIZONTAL_CENTER",
+        "position_anchor": "CENTERLEFT",
+        "viewgroup_items": [
+          {
+            "internal_type": "ShapeModule",
+            "internal_toggles": {
+              "shape_width": 10
+            },
+            "internal_globals": {
+              "shape_width": "rd"
+            },
+            "shape_type": "CIRCLE",
+            "internal_formulas": {
+              "shape_width": "$gv(d)$"
+            }
+          },
+          {
+            "internal_type": "ShapeModule",
+            "internal_toggles": {
+              "shape_width": 10
+            },
+            "internal_globals": {
+              "shape_width": "rd"
+            },
+            "shape_type": "CIRCLE",
+            "internal_formulas": {
+              "shape_width": "$gv(d)$"
+            }
+          },
+          {
+            "internal_type": "ShapeModule",
+            "internal_toggles": {
+              "shape_width": 10
+            },
+            "internal_globals": {
+              "shape_width": "rd"
+            },
+            "shape_type": "CIRCLE",
+            "internal_formulas": {
+              "shape_width": "$gv(d)$"
+            }
+          }
+        ]
+      },
+      {
+        "internal_type": "BitmapModule",
+        "internal_toggles": {
+          "bitmap_width": 10,
+          "position_padding_right": 10
+        },
+        "internal_globals": {
+          "bitmap_width": "ri"
+        },
+        "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG314af4121fd684004fe827a4bef1946a",
+        "internal_title": "釣人",
+        "internal_formulas": {
+          "bitmap_width": "$gv(i)$",
+          "position_padding_right": "$gv(w)$"
+        }
+      },
+      {
+        "internal_type": "BitmapModule",
+        "internal_toggles": {
+          "bitmap_width": 10,
+          "position_padding_left": 10,
+          "position_padding_right": 0,
+          "position_padding_top": 0
+        },
+        "internal_formulas": {
+          "bitmap_width": "$gv(i)$",
+          "position_padding_left": "$(si(rwidth)-gv(w))/2+gv(b)+(gv(w)-gv(b)*2)*\n(1-tf(dp() - dp(0h0m0s), S) / (24*60*60))$",
+          "position_padding_right": "$(gv(w)-gv(b)*2-gv(i)/2)*\n(tf(dp() - dp(0h0m0s), S) / (24*60*60))$"
+        },
+        "internal_globals": {
+          "bitmap_width": "ri"
+        },
+        "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG66efe8bd955569f0d84723fb879f0e88",
+        "internal_title": "魚",
+        "position_anchor": "CENTERLEFT",
+        "bitmap_width": 25.0
+      }
+    ]
+  }
+}
