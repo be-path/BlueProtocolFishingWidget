@@ -601,7 +601,7 @@
         },
         "internal_formulas": {
           "bitmap_width": "$gv(i)$",
-          "position_padding_left": "$(si(rwidth)-gv(w))/2+gv(b)+(gv(w)-gv(b)*2)*\n(1-tf(dp() - dp(0h0m0s), S) / (24*60*60))$",
+          "position_padding_left": "$(si(rwidth)-gv(w))/2+gv(b)+(gv(w)-gv(b)*2)*\n(1-(df(hh)+df(mm)/60)/24)$",
           "position_padding_right": "$(gv(w)-gv(b)*2-gv(i)/2)*\n(tf(dp() - dp(0h0m0s), S) / (24*60*60))$"
         },
         "internal_globals": {
